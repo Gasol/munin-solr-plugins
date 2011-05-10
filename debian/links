@@ -1,0 +1,2 @@
+usr/share/munin/plugins/solr_request_per_second etc/munin/plugins/solr_request_per_second
+usr/share/munin/plugins/solr_time_per_request etc/munin/plugins/solr_time_per_request

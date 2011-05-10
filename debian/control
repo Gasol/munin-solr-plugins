@@ -1,0 +1,24 @@
+Source: munin-solr-plugins
+Section: net
+Priority: optional
+Maintainer: Gasol Wu <gasol.wu@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.1
+Vcs-Git: git://github.com/gasol/munin-solr-plugins.git
+Vcs-Browser: http://github.com/gasol/munin-solr-plugins
+
+Package: munin-solr-plugins
+Architecture: all
+Depends: ${misc:Depends}, munin-node, python (>= 2.5)
+Suggests: solr-jetty | solr-tomcat
+Description: network-wide graphing framework (solr plugins for node)
+ Munin is a highly flexible and powerful solution used to create graphs of
+ virtually everything imaginable throughout your network, while still
+ maintaining a rattling ease of installation and configuration.
+ .
+ This package contains unsupported plugins for the Munin node, contributed by
+ various users of Munin.
+ .
+ Munin is written in Perl, and relies heavily on Tobi Oetiker's excellent
+ RRDtool. To see a real example of Munin in action, you can follow a link
+ from <http://munin.projects.linpro.no/> to a live installation.
