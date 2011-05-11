@@ -1,3 +1,9 @@
+munin-solr-plugins (0.1-1ppa1) natty; urgency=low
+
+  * change distribution to natty
+
+ -- Gasol Wu <gasol.wu@gmail.com>  Wed, 11 May 2011 07:06:30 +0000
+
 munin-solr-plugins (0.1-1) unstable; urgency=low
 
   * Initial release
