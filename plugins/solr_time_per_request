@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+import os, sys, urllib2
+try:
+    import xml.etree.cElementTree as etree
+except ImportError:
+    try:
+        import xml.etree.ElementTree as etree
+    except ImportError:
+        print 'python >= 2.5'
+        sys.exit()
+
+SOLR_URL = os.getenv('SOLR_URL') or 'http://localhost:8080/solr'
+SOLR_ADMIN_URL = os.getenv('SOLR_ADMIN_URL') or 'http://localhost:8080/solr/admin/cores'
+
+def get_cores():
+    url = '%s?action=status' % SOLR_ADMIN_URL
+    f = urllib2.urlopen(url)
+    xml = etree.fromstring(f.read())
+    cores = [lst.attrib['name'].strip() for lst in xml.findall('./lst/lst')]
+    return cores
+
+def main():
+    if len(sys.argv) > 1 and 'config' == sys.argv[1]:
+        print 'graph_title Time Per Request'
+        print 'graph_category solr'
+        print 'graph_vlabel msec / request'
+        print 'graph_args --base 1000 -l 0'
+        for core in get_cores():
+            print 'solr_%s_totalTime.label %s_totalTime' % (core, core)
+            print 'solr_%s_totalTime.type DERIVE' % core
+            print 'solr_%s_totalTime.graph no' % core
+            print 'solr_%s_requests.label %s_requests' % (core, core)
+            print 'solr_%s_requests.type DERIVE' %core
+            print 'solr_%s_requests.graph no' % core
+            print 'solr_%s_time_per_request.label %s' % (core, core)
+            print 'solr_%s_time_per_request.cdef solr_%s_totalTime,solr_%s_requests,/' % (core, core, core)
+        sys.exit()
+
+    for core in get_cores():
+        url = '%s/%s/admin/stats.jsp' % (SOLR_URL, core)
+        f = urllib2.urlopen(url)
+        html = etree.fromstring(f.read())
+        for entry in html.findall('./solr-info/QUERYHANDLER/entry'):
+            name = entry.find('name').text.strip()
+            clazz = entry.find('class').text.strip()
+            if (name == 'standard' or name == 'search') and clazz == 'org.apache.solr.handler.component.SearchHandler':
+                stats = dict((stat.attrib['name'], stat.text.strip()) for stat in entry.find('stats'))
+                print 'solr_%s_totalTime.value %s' % (core, stats['totalTime'])
+                print 'solr_%s_requests.value %s' % (core, stats['requests'])
+
+if '__main__' == __name__:
+    main()
