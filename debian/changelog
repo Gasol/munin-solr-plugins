@@ -1,3 +1,15 @@
+munin-solr-plugins (0.1-2ppa1) natty; urgency=low
+
+  * ppa
+
+ -- Gasol Wu <gasol.wu@gmail.com>  Thu, 12 May 2011 03:59:10 +0000
+
+munin-solr-plugins (0.1-2) unstable; urgency=low
+
+  * strip single quotes in solr.conf
+
+ -- Gasol Wu <gasol.wu@gmail.com>  Thu, 12 May 2011 03:56:06 +0000
+
 munin-solr-plugins (0.1-1ppa1) natty; urgency=low
 
   * change distribution to natty
