@@ -1,3 +1,9 @@
+munin-solr-plugins (0.1.1-1) unstable; urgency=low
+
+  * using autotools
+
+ -- Gasol Wu <gasol.wu@gmail.com>  Wed, 05 Oct 2011 13:28:57 +0800
+
 munin-solr-plugins (0.1-2) unstable; urgency=low
 
   * strip single quotes in solr.conf
