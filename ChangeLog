@@ -1,8 +1,12 @@
 2011-10-05  Gasol Wu  <gasol.wu@gmail.com>
 
+	* Initial version 0.1.1.
+	* using autotools.
 	* plugins/solr_request_per_second: Add copyright
 	* plugins/solr_time_per_request: Add copyright
-	* Makefile: Add copyright
+	* Makefile: Remove
+	* Makefile.am: New file
+	* configure.ac: New file
 	* ChangeLog: New file
 	* COPYING: New file
 	* README: New file

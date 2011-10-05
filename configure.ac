@@ -1,5 +1,5 @@
 AC_PREREQ([2.67])
-AC_INIT([munin-solr-plugins], [0.1], [gasol.wu@gmail.com])
+AC_INIT([munin-solr-plugins], [0.1.1], [gasol.wu@gmail.com])
 AC_PREFIX_DEFAULT([/usr])
 test "$sysconfdir" = '${prefix}/etc' && sysconfdir=/etc
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
