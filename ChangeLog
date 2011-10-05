@@ -1,0 +1,16 @@
+2011-10-05  Gasol Wu  <gasol.wu@gmail.com>
+
+	* plugins/solr_request_per_second: Add copyright
+	* plugins/solr_time_per_request: Add copyright
+	* Makefile: Add copyright
+	* ChangeLog: New file
+	* COPYING: New file
+	* README: New file
+
+2011-05-11  Gasol Wu  <gasol.wu@gmail.com>
+
+	* Initial version 0.1.
+	* plugins/solr_request_per_second: New file
+	* plugins/solr_time_per_request: New file
+	* solr.conf: New file
+	* Makefile: New file
